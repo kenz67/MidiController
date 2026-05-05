@@ -1,0 +1,43 @@
+#include <Arduino.h>
+#include "MidiButtonBase.h"
+
+MidiButtonBase::MidiButtonBase(byte pin, byte debounce)
+  : _pin(pin), _debounce(debounce) {}
+
+void MidiButtonBase::begin() {
+  pinMode(_pin, INPUT_PULLUP);
+  _lastState = digitalRead(_pin);
+  _lastChange = millis();
+}
+
+void MidiButtonBase::update() {
+  bool reading = digitalRead(_pin);
+
+  if (reading != _lastState && (millis() - _lastChange) > _debounce) {
+    _lastChange = millis();
+    _lastState = reading;
+
+    if (reading == LOW) {
+      onPress();
+    } else {
+      onRelease();
+    }
+  }
+}
+
+void MidiButtonBase::sendMidiMsg(midiEventPacket_t msg) {
+    MidiUSB.sendMIDI(msg);
+    MidiUSB.flush();
+}
+
+void MidiButtonBase::beginAll(MidiButtonBase* buttons[], int count) {
+    for (int i = 0; i < count; i++) {
+        buttons[i]->begin();
+    }
+}
+
+void MidiButtonBase::updateAll(MidiButtonBase* buttons[], int count) {
+    for (int i = 0; i < count; i++) {
+        buttons[i]->update();
+    }
+}
