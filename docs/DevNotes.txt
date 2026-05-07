@@ -1,0 +1,72 @@
+
+
+https://henrybalme.substack.com/p/all-8-midi-messages-explained?r=3qbno3&utm_campaign=post&utm_medium=web&triedRedirect=true
+
+
+Note On (0x9n): Initiates a note, including key number and velocity.
+Note Off (0x8n): Ends a note, including key number and velocity.
+Channel Pressure (Aftertouch) (0xDn): Represents the pressure applied to a key after it is pressed, affecting the entire channel.
+Polyphonic Key Pressure (Polyphonic Aftertouch) (0xAn): Represents pressure applied to individual keys. 
+Pitch Bend Change (0xEn): Controls pitch shifting using a high-resolution 14-bit value.
+Program Change (0xCn): Switches presets, patches, or instrument sounds.
+Control Change (CC) (0xBn): Adjusts parameters like volume, modulation, or panning (e.g., CC 7 for Volume, CC 1 for Modulation).
+System Messages
+
+
+A subset of CC messages (often CC 120-127) that control how a device handles channels, such as: 
+All Notes Off (123): Stops all sound.
+Omni On/Off (124/125): Determines if the device listens to all channels or just one.
+Mono/Poly On (126/127): Sets how many notes can be played at once. 
+
+
+
+
+
+if i have a latching switch, will the arduino read the value when it starts up and know if it is on or off?
+
+Yes—as long as you wire it correctly, the Arduino will read the current state of a latching switch at startup and know whether it’s ON or OFF.
+
+How it works
+
+A latching switch physically stays in its position, so when your Arduino Leonardo boots and runs setup(), it simply reads the voltage on the input pin.
+
+If the switch connects the pin to HIGH (5V) → Arduino reads HIGH
+If it connects to LOW (GND) → Arduino reads LOW
+
+Recommended wiring (important)
+
+Use the Arduino’s internal pull-up resistor:
+
+pinMode(2, INPUT_PULLUP);
+
+Wire the switch like this:
+
+One side → Pin 2
+Other side → GND
+Behavior:
+Switch OPEN → pin reads HIGH
+Switch CLOSED → pin reads LOW
+
+So your logic will be inverted:
+
+if (digitalRead(2) == LOW) {
+  // switch is ON (pressed/closed)
+}
+
+
+On startup
+
+In setup(), just read the pin:
+
+void setup() {
+  pinMode(2, INPUT_PULLUP);
+
+  int state = digitalRead(2);
+
+  if (state == LOW) {
+    // switch was ON at power-up
+  } else {
+    // switch was OFF
+  }
+}
+

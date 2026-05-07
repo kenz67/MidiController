@@ -28,4 +28,6 @@ void setup() {
 
 void loop() {
   MidiButtonBase::updateAll(buttons, NUM_BUTTONS);
+  delay(1);
+  yield();
 }
