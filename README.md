@@ -3,6 +3,17 @@ This project is a standard library for Midi Controllers.  It is being developed 
 
 It is being developed on an Arduino Leonardo.   Compatability with other boards is unkown.
 
+# Control Setup
+
+To setup controls for sedning Midi Message, the file UserControls.h should be updated to add the controls to the various control type classes.
+
+For example, buttons should be added to the buttons variable:
+
+    MidiButtonBase* buttons[] = {
+        new NoteButton(13, 0, midiNote[E][4]),
+        new LatchButton(2, 1, 30),
+    };
+
 # Control Types
 ## Buttons
 
