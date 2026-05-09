@@ -25,6 +25,17 @@ For example:
 
 Will send a message for Controller 30 with a value of 0 on Channel 1 each time the button connected to pin number 4 is pressed.
 
+#### LatchButton
+A latching button will alternate between 0 and 127 on each button press.
+
+    LatchButton(byte pin, byte channel, byte ccNumber);
+
+For example
+
+    new LatchButton(2, 1, 30),
+
+This will send a Control 30 message on channel 1 each time pin number 2 is pressed.   It will alternate between 127 and 0 on each press.
+
 #### Note Button
 A Note button will send a Note Message each time the button is pressed.
 
