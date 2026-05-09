@@ -2,7 +2,7 @@
 #include "MidiButtonBase.h"
 
 MidiButtonBase::MidiButtonBase(byte pin, byte debounce)
-  : _pin(pin), _debounce(debounce) {}
+  : MidiControlBase(pin, debounce) {}
 
 void MidiButtonBase::begin() {
   pinMode(_pin, INPUT_PULLUP);
@@ -23,11 +23,6 @@ void MidiButtonBase::update() {
       onRelease();
     }
   }
-}
-
-void MidiButtonBase::sendMidiMsg(midiEventPacket_t msg) {
-    MidiUSB.sendMIDI(msg);
-    MidiUSB.flush();
 }
 
 void MidiButtonBase::beginAll(MidiButtonBase* buttons[], int count) {
