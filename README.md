@@ -3,6 +3,17 @@ This project is a standard library for Midi Controllers.  It is being developed 
 
 It is being developed on an Arduino Leonardo.   Compatability with other boards is unkown.
 
+# Control Setup
+
+To setup controls for sedning Midi Message, the file UserControls.h should be updated to add the controls to the various control type classes.
+
+For example, buttons should be added to the buttons variable:
+
+    MidiButtonBase* buttons[] = {
+        new NoteButton(13, 0, midiNote[E][4]),
+        new LatchButton(2, 1, 30),
+    };
+
 # Control Types
 ## Buttons
 
@@ -24,6 +35,17 @@ For example:
     new ControlButton(4, 1, 30, 0),            
 
 Will send a message for Controller 30 with a value of 0 on Channel 1 each time the button connected to pin number 4 is pressed.
+
+#### LatchButton
+A latching button will alternate between 0 and 127 on each button press.
+
+    LatchButton(byte pin, byte channel, byte ccNumber);
+
+For example
+
+    new LatchButton(2, 1, 30),
+
+This will send a Control 30 message on channel 1 each time pin number 2 is pressed.   It will alternate between 127 and 0 on each press.
 
 #### Note Button
 A Note button will send a Note Message each time the button is pressed.

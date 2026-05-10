@@ -3,8 +3,9 @@
 
 #include <Arduino.h>
 #include "MIDIUSB.h"
+#include "MidiControlBase.h"
 
-class MidiButtonBase {
+class MidiButtonBase : public MidiControlBase {
 public:
     MidiButtonBase(byte pin, byte debounce = 5);
 
@@ -12,7 +13,6 @@ public:
 
     void begin();
     void update();
-    void sendMidiMsg(midiEventPacket_t msg);
 
     // Static helpers
     static void beginAll(MidiButtonBase* buttons[], int count);
@@ -21,9 +21,6 @@ public:
 protected:
     virtual void onPress() = 0;
     virtual void onRelease() = 0;
-
-    byte _pin;
-    byte _debounce;
 
     bool _lastState = HIGH;
     unsigned long _lastChange = 0;
