@@ -4,11 +4,11 @@
 #include <Arduino.h>
 #include "MIDIUSB.h"
 
-class MidiControlBase {
+class MidiBase {
 public:
-    MidiControlBase(byte pin, byte debounce = 5);
+    MidiBase(byte pin, byte debounce = 5);
 
-    virtual ~MidiControlBase() {}
+    virtual ~MidiBase() {}
 
     virtual void begin() {};
     virtual void update() {};

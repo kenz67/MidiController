@@ -1,16 +1,18 @@
-
 #include "MidiNotes.h"
-#include "MidiButtonBase.h"
-#include "NoteButton.h"
-#include "ControlButton.h"
-#include "LatchButton.h"
-#include "SimLatchButton.h"
 
-MidiButtonBase* buttons[] = {
+#include "ButtonControl.h"
+#include "ButtonBase.h"
+#include "ButtonLatch.h"
+#include "ButtonLatchSim.h"
+#include "ButtonNote.h"
+
+
+
+ButtonBase* buttons[] = {
     // new NoteButton(2, 0, midiNote[C][4]), 
-    // new NoteButton(13, 0, midiNote[E][4]),
-    //new ControlButton(2, 1, 30, 0),
-    //new ControlButton(13, 1, 30, 127),
-    new LatchButton(2, 1, 30),
-    new SimLatchButton(13, 1, 27),
+    // new ButtonNote(13, 0, midiNote[E][4]),
+    //new ButtonControl(2, 1, 30, 0),
+    new ButtonControl(13, 1, 30, 127),
+    new ButtonLatch(2, 1, 30),
+    //new ButtonLatchSim(13, 1, 27),
 };

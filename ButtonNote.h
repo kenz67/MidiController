@@ -1,13 +1,13 @@
-#ifndef NOTE_BUTTON_H
-#define NOTE_BUTTON_H
+#ifndef BUTTON_NOTE_H
+#define BUTTON_NOTE_H
 
 #include <Arduino.h>
-#include "MidiButtonBase.h"
+#include "ButtonBase.h"
 
-class NoteButton : public MidiButtonBase {
+class ButtonNote : public ButtonBase {
 public:
     // Constructor declaration (definition is inline in the .cpp or .h)
-    NoteButton(byte pin, byte channel, byte note, byte velocity = 127);
+    ButtonNote(byte pin, byte channel, byte note, byte velocity = 127);
 
 protected:
     void onPress() override;

@@ -1,13 +1,13 @@
-#ifndef LATCH_BUTTON_H
-#define LATCH_BUTTON_H
+#ifndef BUTTONLATCHSIM_H
+#define BUTTONLATCHSIM_H
 
 #include <Arduino.h>
-#include "MidiButtonBase.h"
+#include "ButtonBase.h"
 
-class LatchButton : public MidiButtonBase {
+class ButtonLatchSim : public ButtonBase {
 public:
     // Constructor declaration (definition is inline in the .cpp or .h)
-    LatchButton(byte pin, byte channel, byte ccNumber);
+    ButtonLatchSim(byte pin, byte channel, byte ccNumber);
 
 protected:
     void onPress() override;
@@ -16,6 +16,7 @@ protected:
 private:
     byte _channel;
     byte _ccNumber;
+    byte _value;
 };
 
 #endif
