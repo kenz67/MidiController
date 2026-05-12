@@ -1,13 +1,13 @@
-#ifndef SIMLATCH_BUTTON_H
-#define SIMLATCH_BUTTON_H
+#ifndef BUTTON_CONTROL_H
+#define BUTTON_CONTROL_H
 
 #include <Arduino.h>
-#include "MidiButtonBase.h"
+#include "ButtonBase.h"
 
-class SimLatchButton : public MidiButtonBase {
+class ButtonControl : public ButtonBase {
 public:
     // Constructor declaration (definition is inline in the .cpp or .h)
-    SimLatchButton(byte pin, byte channel, byte ccNumber);
+    ButtonControl(byte pin, byte channel, byte ccNumber, byte value);
 
 protected:
     void onPress() override;

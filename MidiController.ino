@@ -10,12 +10,12 @@ const int potPin = A0;
 int lastValue = -1;
 
 void setup() {
-  MidiButtonBase::beginAll(buttons, NUM_BUTTONS);
+  ButtonBase::beginAll(buttons, NUM_BUTTONS);
   Serial.begin(115200);
 }
 
 void loop() {
-  MidiButtonBase::updateAll(buttons, NUM_BUTTONS);
+  ButtonBase::updateAll(buttons, NUM_BUTTONS);
   // int potValue =
   //   (analogRead(A0) +
   //    analogRead(A0) +

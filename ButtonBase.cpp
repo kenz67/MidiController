@@ -1,16 +1,16 @@
 #include <Arduino.h>
-#include "MidiButtonBase.h"
+#include "ButtonBase.h"
 
-MidiButtonBase::MidiButtonBase(byte pin, byte debounce)
+ButtonBase::ButtonBase(byte pin, byte debounce)
   : MidiBase(pin, debounce) {}
 
-void MidiButtonBase::begin() {
+void ButtonBase::begin() {
   pinMode(_pin, INPUT_PULLUP);
   _lastState = digitalRead(_pin);
   _lastChange = millis();
 }
 
-void MidiButtonBase::update() {
+void ButtonBase::update() {
   bool reading = digitalRead(_pin);
 
   if (reading != _lastState && (millis() - _lastChange) > _debounce) {
@@ -25,13 +25,13 @@ void MidiButtonBase::update() {
   }
 }
 
-void MidiButtonBase::beginAll(MidiButtonBase* buttons[], int count) {
+void ButtonBase::beginAll(ButtonBase* buttons[], int count) {
     for (int i = 0; i < count; i++) {
         buttons[i]->begin();
     }
 }
 
-void MidiButtonBase::updateAll(MidiButtonBase* buttons[], int count) {
+void ButtonBase::updateAll(ButtonBase* buttons[], int count) {
     for (int i = 0; i < count; i++) {
         buttons[i]->update();
     }
