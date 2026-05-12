@@ -3,9 +3,9 @@
 
 #include <Arduino.h>
 #include "MIDIUSB.h"
-#include "MidiControlBase.h"
+#include "MidiBase.h"
 
-class MidiButtonBase : public MidiControlBase {
+class MidiButtonBase : public MidiBase {
 public:
     MidiButtonBase(byte pin, byte debounce = 5);
 

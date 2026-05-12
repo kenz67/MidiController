@@ -2,7 +2,7 @@
 #include "MidiButtonBase.h"
 
 MidiButtonBase::MidiButtonBase(byte pin, byte debounce)
-  : MidiControlBase(pin, debounce) {}
+  : MidiBase(pin, debounce) {}
 
 void MidiButtonBase::begin() {
   pinMode(_pin, INPUT_PULLUP);
