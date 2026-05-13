@@ -1,3 +1,7 @@
+/*
+Probably don't needs a base class here, but include just in case we do something later
+*/
+
 #include <Arduino.h>
 #include "PotentiometerBase.h"
 
