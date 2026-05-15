@@ -21,8 +21,9 @@ void setup() {
     ButtonBase::beginAll(buttons, NUM_BUTTONS);
     PotentiometerBase::beginAll(pots, NUM_POTS);
 
-    // Wait for USB-MIDI to be ready before reading potentiometers
+    // Wait for USB-MIDI to be ready before sending startup state
     delay(1000);
+    ButtonBase::initAll(buttons, NUM_BUTTONS);
     Debug::printString("Setup Complete");
 }
 

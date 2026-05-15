@@ -17,8 +17,10 @@ public:
     // Static helpers
     static void beginAll(ButtonBase* buttons[], int count);
     static void updateAll(ButtonBase* buttons[], int count);
+    static void initAll(ButtonBase* buttons[], int count);
 
 protected:
+    virtual void init() {}
     virtual void onPress() = 0;
     virtual void onRelease() = 0;
 

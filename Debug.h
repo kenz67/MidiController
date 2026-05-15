@@ -4,7 +4,7 @@
 #include <Arduino.h>
 
 // If you want to enable debug output, uncomment the following line:
-//#define DEBUG
+#define DEBUG
 
 class Debug {
 public:

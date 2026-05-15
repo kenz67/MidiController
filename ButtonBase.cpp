@@ -36,3 +36,9 @@ void ButtonBase::updateAll(ButtonBase* buttons[], int count) {
         buttons[i]->update();
     }
 }
+
+void ButtonBase::initAll(ButtonBase* buttons[], int count) {
+    for (int i = 0; i < count; i++) {
+        buttons[i]->init();
+    }
+}
