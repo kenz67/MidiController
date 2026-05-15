@@ -21,5 +21,5 @@ ButtonBase* buttons[] = {
 
 PotentiometerBase* pots[] = {
     // Add potentiometers here
-    new Potentiometer(A0, 1, 1, 0)
+    new Potentiometer(A0, 1, 31, 0)
 };
