@@ -1,5 +1,5 @@
-#ifndef MIDI_CONTROL_BASE_H
-#define MIDI_CONTROL_BASE_H
+#ifndef MIDI_BASE_H
+#define MIDI_BASE_H
 
 #include <Arduino.h>
 #include "MIDIUSB.h"

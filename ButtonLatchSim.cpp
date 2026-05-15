@@ -1,4 +1,5 @@
 #include "ButtonLatchSim.h"
+#include "Debug.h"
 
 ButtonLatchSim::ButtonLatchSim(byte pin, byte channel, byte ccNumber)
     : ButtonBase(pin), _channel(channel), _ccNumber(ccNumber) {
@@ -6,6 +7,7 @@ ButtonLatchSim::ButtonLatchSim(byte pin, byte channel, byte ccNumber)
     }
 
 void ButtonLatchSim::onPress() {
+    Debug::printNameValuePair("LatchSim Button Pressed", _pin);
     if (_value == 127)
         _value = 0;
     else
@@ -15,4 +17,5 @@ void ButtonLatchSim::onPress() {
 }
 
 void ButtonLatchSim::onRelease() {
+    Debug::printNameValuePair("LatchSim Button Released", _pin);
 }
