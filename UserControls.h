@@ -14,12 +14,13 @@ ButtonBase* buttons[] = {
     // new NoteButton(2, 0, midiNote[C][4]), 
     // new ButtonNote(13, 0, midiNote[E][4]),
     //new ButtonControl(2, 1, 30, 0),
-    new ButtonControl(13, 1, 30, 127),
-    new ButtonLatch(2, 1, 30),
+    //new ButtonControl(13, 1, 30, 127),
+    new ButtonNote(13, 0, midiNote[D][4]),
+    new ButtonLatch(4, 1, 30),
     //new ButtonLatchSim(13, 1, 27),
 };
 
 PotentiometerBase* pots[] = {
     // Add potentiometers here
-    new Potentiometer(A0, 1, 31, 0)
+   // new Potentiometer(A0, 1, 31, 0)
 };

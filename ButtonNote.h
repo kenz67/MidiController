@@ -10,6 +10,7 @@ public:
     ButtonNote(byte pin, byte channel, byte note, byte velocity = 127);
 
 protected:
+    void init() override;
     void onPress() override;
     void onRelease() override;
 
