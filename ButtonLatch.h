@@ -10,6 +10,7 @@ public:
     ButtonLatch(byte pin, byte channel, byte ccNumber);
 
 protected:
+    void init() override;
     void onPress() override;
     void onRelease() override;
 

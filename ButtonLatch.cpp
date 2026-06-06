@@ -5,6 +5,19 @@ ButtonLatch::ButtonLatch(byte pin, byte channel, byte ccNumber)
     : ButtonBase(pin), _channel(channel), _ccNumber(ccNumber) {
     }
 
+void ButtonLatch::init() {
+    Debug::printNameValuePair("Latch Button Startup", _pin);
+    midiEventPacket_t msg;
+
+    if (_lastState == LOW) {
+        msg = {0x0B, uint8_t(0xB0 | _channel), _ccNumber, 127};
+    } else {
+        msg = {0x0B, uint8_t(0xB0 | _channel), _ccNumber, 0};
+    }
+
+    sendMidiMsg(msg);
+}
+
 void ButtonLatch::onPress() {
     Debug::printNameValuePair("Latch Button Pressed", _pin);
     midiEventPacket_t msg = {0x0B, uint8_t(0xB0 | _channel), _ccNumber, 127};
