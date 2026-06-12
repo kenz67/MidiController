@@ -1,9 +1,5 @@
 #include <LiquidCrystal_I2C.h>
 
-#include "Arduino.h"
-#include "ButtonBase.h"
-#include "PotentiometerBase.h"
-#include "MIDIUSB.h"
 #include "SetupControls.h"
 
 #include "Debug.h"

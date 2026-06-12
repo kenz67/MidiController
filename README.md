@@ -5,7 +5,7 @@ It is being developed on an Arduino Leonardo.   Compatability with other boards 
 
 # Control Setup
 
-To setup controls for sedning Midi Message, the file UserControls.h should be updated to add the controls to the various control type classes.
+To setup controls for sedning Midi Message, the values in MidiController.ino should be updated to add the controls to the various control type classes.
 
 For example, buttons should be added to the buttons variable:
 

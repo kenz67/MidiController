@@ -4,6 +4,17 @@
 #include <Arduino.h>
 #include <LiquidCrystal_I2C.h>
 
+// Forward declarations to avoid circular dependencies
+#include "MidiNotes.h"
+#include "ButtonControl.h"
+#include "ButtonBase.h"
+#include "ButtonLatch.h"
+#include "ButtonLatchSim.h"
+#include "ButtonNote.h"
+
+#include "Potentiometer.h"
+
+
 class SetupControls {
 public:
     static void setup(ButtonBase* buttons[], short NUM_BUTTONS, PotentiometerBase* pots[], short NUM_POTS, LiquidCrystal_I2C *lcd = nullptr);
