@@ -1,7 +1,6 @@
 #ifndef SETUPCONTROLS_H
 #define SETUPCONTROLS_H
 
-#include <Arduino.h>
 #include <LiquidCrystal_I2C.h>
 
 // Forward declarations to avoid circular dependencies

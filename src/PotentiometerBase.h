@@ -1,7 +1,6 @@
 #ifndef POTENTIOMETER_BASE_H
 #define POTENTIOMETER_BASE_H
 
-#include <Arduino.h>
 #include "MIDIUSB.h"
 #include "MidiBase.h"
 

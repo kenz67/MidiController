@@ -3,8 +3,7 @@
 #include <LiquidCrystal_I2C.h>
 #include <MIDIUSB.h>
 
-//#include "UserControls.h"
-#include "SetupControls.h"
+#include "src/SetupControls.h"
 
 // Set the LCD address to 0x27 for a 16 chars and 2 line display
 // If 0x27 doesn't work, try 0x3F

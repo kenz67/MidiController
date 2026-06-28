@@ -1,7 +1,6 @@
 #ifndef BUTTON_BASE_H
 #define BUTTON_BASE_H
 
-#include <Arduino.h>
 #include "MIDIUSB.h"
 #include "MidiBase.h"
 

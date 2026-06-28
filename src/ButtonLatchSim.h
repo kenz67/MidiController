@@ -1,7 +1,6 @@
 #ifndef BUTTONLATCHSIM_H
 #define BUTTONLATCHSIM_H
 
-#include <Arduino.h>
 #include "ButtonBase.h"
 
 class ButtonLatchSim : public ButtonBase {
