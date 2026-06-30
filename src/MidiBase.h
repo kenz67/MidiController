@@ -1,7 +1,6 @@
 #ifndef MIDI_BASE_H
 #define MIDI_BASE_H
 
-#include <Arduino.h>
 #include "MIDIUSB.h"
 
 class MidiBase {

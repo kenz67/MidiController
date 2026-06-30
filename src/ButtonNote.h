@@ -1,7 +1,7 @@
 #ifndef BUTTON_NOTE_H
 #define BUTTON_NOTE_H
 
-#include <Arduino.h>
+//#include <Arduino.h>
 #include "ButtonBase.h"
 
 class ButtonNote : public ButtonBase {
