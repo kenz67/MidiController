@@ -11,7 +11,7 @@ public:
     virtual ~ButtonBase() {}
 
     void begin();
-    void update();
+    virtual void update();
 
     // Static helpers
     static void beginAll(ButtonBase* buttons[], int count);
