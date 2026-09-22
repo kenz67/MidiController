@@ -32,19 +32,19 @@ void ButtonControl::update() {
         (millis() - _pressStartTime) >= _longPressDurationMs) {
         _longPressTriggered = true;
         Debug::printNameValuePair("Control Button Long Pressed", _pin);
-        sendLongControlMessage(_longPressValue);
+        onLongPress();
     }
 }
 
-void ButtonControl::onPress() {
+void ButtonControl::onPress() {    
     Debug::printNameValuePair("Control Button Pressed", _pin);
-
     if (_longPressDurationMs > 0) {
+        Debug::printNameValuePair("Checking for long press", _pin);
         _pressed = true;
         _longPressTriggered = false;
         _pressStartTime = millis();
-    } else {
-        sendControlMessage(_value);
+    } else {        
+        onButtonPress();
     }
 }
 
@@ -52,10 +52,18 @@ void ButtonControl::onRelease() {
     Debug::printNameValuePair("Control Button Released", _pin);
 
     if (_longPressDurationMs > 0 && !_longPressTriggered) {
-        sendControlMessage(_value);
+        onButtonPress();
     }
 
     _pressed = false;
+}
+
+void ButtonControl::onButtonPress() {
+    sendControlMessage(_value);
+}
+
+void ButtonControl::onLongPress() {
+    sendLongControlMessage(_longPressValue);
 }
 
 void ButtonControl::sendControlMessage(byte value) {

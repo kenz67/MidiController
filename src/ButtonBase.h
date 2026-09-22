@@ -6,7 +6,7 @@
 
 class ButtonBase : public MidiBase {
 public:
-    ButtonBase(byte pin, byte debounce = 5);
+    ButtonBase(byte pin, byte debounce = 10);
 
     virtual ~ButtonBase() {}
 
