@@ -13,6 +13,8 @@ protected:
     void onPress() override;
     void onRelease() override;
     void update() override;
+    virtual void onButtonPress();
+    virtual void onLongPress();
 
 private:
     void sendControlMessage(byte value);
